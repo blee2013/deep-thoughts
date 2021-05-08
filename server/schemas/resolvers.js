@@ -25,6 +25,15 @@ const resolvers = {
         // place this inside of the `Query` nested object right after `thoughts` 
         thought: async (parent, { _id }) => {
             return Thought.findOne({ _id });
+        },
+        Mutation: { 
+            addUser: async (parent, args) => {
+                const user = await User.create(args);
+                return user;
+            },
+            login: async () => {
+
+            }
         }
     }
 };
